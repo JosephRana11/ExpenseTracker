@@ -14,6 +14,15 @@
       <p>Wallet : Active</p>
       <a href="{% url 'record-income' %}">Record Income</a>{% csrf_token %}
       <a href="{% url 'record-expense'%}">Record expense</a>{% csrf_token %}
+      <h1>Total Balance : Rs{{sum}}</h1>
+      <h1>Latest Income</h1>
+      {% for item in user_income %}
+      <p> {{item.income_title}} - Rs{{item.income_amount}} <a href="{% url 'delete-income' item.id %}">remove</a>{% csrf_token%}</p>
+      {% endfor %}
+      <h1>Latest Expense</h1>
+      {% for item in user_expense%}
+      <p> {{item.expense_title}} - Rs {{item.expense_amount}} <a href="{% url 'delete-expense' item.id%}">remove</a>{% csrf_token %}</p>
+      {% endfor %}
       {% else %}
       <a href="{% url 'create-wallet' %}">Create Wallet</a>
       {% csrf_token %}

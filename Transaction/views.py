@@ -12,7 +12,7 @@ def record_income_view(request):
       data = form.save(commit=False)
       data.wallet_origin = owner_wallet
       data.save()
-    return redirect('record-income')
+    return redirect('home')
   else:
    context = {
     'form': IncomeForm
@@ -34,3 +34,13 @@ def record_expense_view(request):
     'form': ExpenseForm
    }
    return render(request , 'record-expense.html', context)
+
+def delete_income_view(request , obj_id):
+  obj = Income.objects.get(pk = obj_id)
+  obj.delete()
+  return redirect('home')
+
+def delete_expense_view(request , obj_id):
+  obj = Expense.objects.get(pk = obj_id)
+  obj.delete()
+  return redirect('home')
