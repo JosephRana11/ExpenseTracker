@@ -9,7 +9,6 @@ def home_view(request):
   has_wallet = False
   if (request.user.is_authenticated):
    has_wallet = Wallet.objects.filter(owner=request.user).exists()
-   print(has_wallet)
   context = {
     'has_wallet' : has_wallet
   }

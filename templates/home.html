@@ -12,6 +12,8 @@
     {% csrf_token %}
     {% if has_wallet == True %}
       <p>Wallet : Active</p>
+      <a href="{% url 'record-income' %}">Record Income</a>{% csrf_token %}
+      <a href="{% url 'record-expense'%}">Record expense</a>{% csrf_token %}
       {% else %}
       <a href="{% url 'create-wallet' %}">Create Wallet</a>
       {% csrf_token %}

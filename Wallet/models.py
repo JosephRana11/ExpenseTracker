@@ -8,5 +8,5 @@ class Wallet(models.Model):
   date_create = models.DateField(auto_now_add=True)
 
   def __str__(self):
-    return f"Wallet owned by : {self.owner.username} Amount:{self.amount}"
+    return f"Wallet owned by : {self.owner.username}"
   
